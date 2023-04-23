@@ -2,19 +2,30 @@
 
 ## 1.文件目录：
 ```
-│  build.bat
-│  data_gen.v
-│  pingpang.v
-│  pingpang_tb.sv
-│  readme.md
+|--single_channel
+|	pingpang_buffer.v
+|   pingpang_ram.v
+|   pingpang_top.v
+|   pingpang_tb.sv
+|
+|--double_channel
+│   build.bat
+│   data_gen.v
+│   pingpang.v
+│   pingpang_tb.sv
+│   readme.md
 │
-└─assert
+|--assert
         2.png
         3.png
         4.png
         5.png
 ```
 ### 文件说明：
+
+single_channel -->通过俩个单通道拼接
+
+double_channel -->直接使用双通道
 
 build.bat --->win下iverilog编译测试
 
@@ -29,7 +40,7 @@ pingpang_tb -->测试文件
 ```
 实现输入输出缓存模块，包括a to b 与b to a两条通道（每个通道两个buffer，共四个）
 
-当switch跳变时，切换buffer
+当switch为高时，切换buffer
 ```
 
 |   输入   | 输出  |
@@ -39,7 +50,7 @@ pingpang_tb -->测试文件
 |rst_n 
 | data_in_b[15:0] | data_out_b[15:0] |
 |switch
-
+|
 
 ## 3.设计验证说明：
 - 1.switch 切换的时候
